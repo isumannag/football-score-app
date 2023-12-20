@@ -1,0 +1,9 @@
+ul li.nav-item {
+    display: inline;
+    padding: 20px;
+    a {cursor: pointer}
+    a.selected {
+        color: blue;
+        text-decoration: underline;
+    }
+}

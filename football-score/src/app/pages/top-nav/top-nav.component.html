@@ -1,0 +1,8 @@
+<ul class="nav">
+    <li class="nav-item" *ngFor="let country of countryList">
+        <a [attr.id]="(country.countryName | lowercase) + 'Select'"
+            [class]="(country.countryName === (selectedCountry$ | async)) ? 'selected' : ''"
+            [routerLink]="['/football', country.countryName]"
+        >{{ country.countryName }}</a>
+    </li>
+</ul>

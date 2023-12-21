@@ -4,8 +4,6 @@ import { StandingComponent } from './pages/standings/standings.component';
 import { FixtureComponent } from './pages/fixtures/fixtures.component';
 
 export const routes: Routes = [
-    // {path: '', redirectTo: 'home', pathMatch: 'full'},
-    // {path: 'football', component: HomeComponent},
     { path: '', redirectTo: 'football/England', pathMatch: 'full' },
     { path: 'football/:country', component: StandingComponent },
     { path: 'football/:country/:teamId',  component: FixtureComponent },

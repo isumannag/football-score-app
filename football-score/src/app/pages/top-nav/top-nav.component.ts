@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Country } from '../../model/league-data.model';
 import { LeagueDataService } from '../../services/league-data.service';
-import { BehaviorSubject } from 'rxjs';
+import { Country } from '../../model/standings.model';
 
 @Component({
   selector: 'app-top-nav',
@@ -10,12 +9,9 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class TopNavComponent implements OnInit{
   countryList: Country[] = [];
-  selectedCountry$: BehaviorSubject<string> | undefined;
-
   constructor(private leagueDataService: LeagueDataService) {}
 
   ngOnInit(): void {
-    this.selectedCountry$ = this.leagueDataService.selectedCountry$;
     this.countryList = this.leagueDataService.getCountryList();
   }
 }

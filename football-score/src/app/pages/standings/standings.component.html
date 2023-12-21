@@ -1,1 +1,19 @@
-<div>{{selectedCountry}}</div>
+<table *ngIf="standingTeam; else nodata" class="table table-bordered table-layout">
+    <thead><tr><th scope="col" *ngFor="let header of standingTableHeaders">{{header}}</th></tr></thead>
+    <tbody>
+        <tr *ngFor="let item of standingTeam">
+            <td scope="row">{{ item.rank }}</td>
+            <td> <img [src]="item.team.logo" alt="" class="logo-img" /> </td>
+            <td> <a [routerLink]="['/football', selectedCountry, 'fixture']"
+                    [queryParams]="{ leagueId: leagueArgs?.league, season: leagueArgs?.season, id: item.team.id}"
+                >{{ item.team.name }}</a> </td>
+            <td>{{ item.all.played }}</td>
+            <td>{{ item.all.win }}</td>
+            <td>{{ item.all.lose }}</td>
+            <td>{{ item.all.draw }}</td>
+            <td>{{ item.goalsDiff }}</td>
+            <td>{{ item.points }}</td>
+        </tr>
+    </tbody>
+</table>
+<ng-template #nodata><div>{{loadingText}}</div></ng-template>

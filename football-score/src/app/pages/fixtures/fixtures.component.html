@@ -1,0 +1,16 @@
+<table *ngIf="fixturesList; else nodata" class="table table-bordered table-layout">
+  <tbody>
+    <tr *ngFor="let item of fixturesList">
+      <td scope="row"> <img class="logo-img" alt="" [src]="item.teams?.home?.logo"/></td>
+      <td>{{ item.teams?.home?.name }}</td>
+      <td>{{ item.goals?.home }}</td>
+      <td>-</td>
+      <td>{{ item.goals?.away }}</td>
+      <td>{{ item.teams?.away?.name }}</td>
+      <td><img class="logo-img" alt="" [src]="item.teams?.away?.logo" /></td>
+    </tr>
+  </tbody>
+</table>
+<ng-template #nodata><div>{{loadingText}}</div></ng-template>
+<div class="back-button"> <button (click)="backButton()">Back</button> </div>
+  
